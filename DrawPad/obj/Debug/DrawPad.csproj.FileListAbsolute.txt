@@ -1,0 +1,5 @@
+D:\ZYH\study\OOBootCamp\DrawPad\DrawPad\bin\Debug\DrawPad.exe
+D:\ZYH\study\OOBootCamp\DrawPad\DrawPad\bin\Debug\DrawPad.pdb
+D:\ZYH\study\OOBootCamp\DrawPad\DrawPad\obj\Debug\ResolveAssemblyReference.cache
+D:\ZYH\study\OOBootCamp\DrawPad\DrawPad\obj\Debug\DrawPad.exe
+D:\ZYH\study\OOBootCamp\DrawPad\DrawPad\obj\Debug\DrawPad.pdb

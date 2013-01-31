@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="41ea810e-a237-45eb-a7b4-54aeb55f1f51" name="XHuang6@BGC-HUANGXIN 2013-01-30 18:08:42" runUser="DIR\XHuang6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="00ae203c-feb1-4193-a9eb-5b554e3074eb">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="Q:\OO Boot Camp\DrawPad\TestResults\XHuang6_BGC-HUANGXIN 2013-01-30 18_08_42">
+      <DeploymentItem filename="S:\Moq.dll" />
+      <DeploymentItem filename="Q:\OO Boot Camp\DrawPad\DrawPad\bin\Debug\DrawPad.exe" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2013-01-30T18:08:42.0223692+08:00" queuing="2013-01-30T18:08:43.0831828+08:00" start="2013-01-30T18:08:43.2859854+08:00" finish="2013-01-30T18:08:44.2219974+08:00" />
+  <TestDefinitions>
+    <UnitTest name="given_draw_line_and_1_click_should_wait_for_click" storage="q:\oo boot camp\drawpad\drawpadtest\bin\debug\drawpadtest.dll" id="75e4d0f3-69d7-3b3f-fa35-9663209f2771">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="6015294b-b36d-415e-accc-c38f1110cc83" />
+      <TestMethod codeBase="Q:\OO Boot Camp\DrawPad\DrawPadTest\bin\Debug\DrawPadTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DrawPadTest.Mouse_OnClick, DrawPadTest" name="given_draw_line_and_1_click_should_wait_for_click" />
+    </UnitTest>
+    <UnitTest name="given_llne_should_throw_invalid_command_exception" storage="q:\oo boot camp\drawpad\drawpadtest\bin\debug\drawpadtest.dll" id="384e8260-1e48-024c-05c3-480345a103e1">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="793bcb3b-5cd2-47a5-aca8-e9bc7c960c5f" />
+      <TestMethod codeBase="Q:\OO Boot Camp\DrawPad\DrawPadTest\bin\Debug\DrawPadTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DrawPadTest.Mouse_Process, DrawPadTest" name="given_llne_should_throw_invalid_command_exception" />
+    </UnitTest>
+    <UnitTest name="given_draw_line_and_2_click_should_return_a_valid_line_object" storage="q:\oo boot camp\drawpad\drawpadtest\bin\debug\drawpadtest.dll" id="fd52351b-9599-de32-ab04-b0a85914e786">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="6e5c2cd5-0a2f-46ae-9db3-cd805337bfa3" />
+      <TestMethod codeBase="Q:\OO Boot Camp\DrawPad\DrawPadTest\bin\Debug\DrawPadTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DrawPadTest.Mouse_OnClick, DrawPadTest" name="given_draw_line_and_2_click_should_return_a_valid_line_object" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="384e8260-1e48-024c-05c3-480345a103e1" executionId="793bcb3b-5cd2-47a5-aca8-e9bc7c960c5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="75e4d0f3-69d7-3b3f-fa35-9663209f2771" executionId="6015294b-b36d-415e-accc-c38f1110cc83" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd52351b-9599-de32-ab04-b0a85914e786" executionId="6e5c2cd5-0a2f-46ae-9db3-cd805337bfa3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="793bcb3b-5cd2-47a5-aca8-e9bc7c960c5f" testId="384e8260-1e48-024c-05c3-480345a103e1" testName="given_llne_should_throw_invalid_command_exception" computerName="BGC-HUANGXIN" duration="00:00:00.0782968" startTime="2013-01-30T18:08:43.3639864+08:00" endTime="2013-01-30T18:08:43.7227910+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6015294b-b36d-415e-accc-c38f1110cc83" testId="75e4d0f3-69d7-3b3f-fa35-9663209f2771" testName="given_draw_line_and_1_click_should_wait_for_click" computerName="BGC-HUANGXIN" duration="00:00:00.4467014" startTime="2013-01-30T18:08:43.7227910+08:00" endTime="2013-01-30T18:08:44.1751968+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6e5c2cd5-0a2f-46ae-9db3-cd805337bfa3" testId="fd52351b-9599-de32-ab04-b0a85914e786" testName="given_draw_line_and_2_click_should_return_a_valid_line_object" computerName="BGC-HUANGXIN" duration="00:00:00.0137858" startTime="2013-01-30T18:08:44.1751968+08:00" endTime="2013-01-30T18:08:44.1907970+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
