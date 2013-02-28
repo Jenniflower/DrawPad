@@ -4,16 +4,85 @@ namespace DrawPad
 {
     public class Mouse : IMouse
     {
-        private LineDrawer _drawer = LineDrawer.None;
+        private ShapeMode _shapeMode ;
+        private TriangleShapeMode.TriangleDrawer _triangleDrawer = TriangleShapeMode.TriangleDrawer.None;
         private Point _begin;
         private Point _end;
         private readonly IDrawPad _drawPad;
 
-        enum LineDrawer
+        private class LineShapeMode : ShapeMode
         {
-            None,
-            WaitBeginPoint,
-            WaitEndPoint,
+            private LineDrawer _drawer;
+            private Point _begin;
+            private Point _end;
+            internal enum LineDrawer
+            {
+                None,
+                WaitBeginPoint,
+                WaitEndPoint,
+            }
+            public LineShapeMode()
+            {
+                _drawer = LineDrawer.WaitBeginPoint;
+            }
+            public override void OnMouseClick(Point location,IDrawPad pad)
+            {
+                switch (_drawer)
+                {
+                    case LineDrawer.WaitBeginPoint:
+                        _begin = location;
+                        _drawer = LineShapeMode.LineDrawer.WaitEndPoint;
+                        break;
+
+                    case LineDrawer.WaitEndPoint:
+                        _end = location;
+                        _drawer = LineShapeMode.LineDrawer.WaitBeginPoint;
+                        pad.Add(new Line(_begin, _end));
+                        break;
+                }
+
+            }
+        }
+
+        private class TriangleShapeMode : ShapeMode
+        {
+            private Point _first;
+            private Point _second;
+            private Point _third;
+            private TriangleDrawer _drawer = TriangleDrawer.None;
+            internal enum TriangleDrawer
+            {
+                None,
+                WaitFirstPoint,
+                WaitSecondPoint,
+                WaitThirdPoint
+            }
+            public TriangleShapeMode()
+            {
+                _drawer = TriangleShapeMode.TriangleDrawer.WaitFirstPoint;
+            }
+
+            public override void OnMouseClick(Point location, IDrawPad pad)
+            {
+                switch (_drawer)
+                {
+                    case TriangleDrawer.WaitFirstPoint:
+                        _first = location;
+                        _drawer = TriangleDrawer.WaitSecondPoint;
+                        break;
+
+                    case TriangleDrawer.WaitSecondPoint:
+                        _second = location;
+                        _drawer = TriangleDrawer.WaitThirdPoint;
+                        break;
+                    case TriangleDrawer.WaitThirdPoint:
+                        _third = location;
+                        _drawer = TriangleDrawer.WaitFirstPoint;
+                        pad.Add(new Triangle(_first,_second,_third));
+                        break;
+                }
+
+            }
         }
 
         public Mouse(IDrawPad drawPad)
@@ -31,7 +100,10 @@ namespace DrawPad
             switch (command)
             {
                 case "line":
-                    _drawer = LineDrawer.WaitBeginPoint;
+                    _shapeMode = new LineShapeMode();
+                    return true;
+                case "triangle":
+                    _shapeMode = new TriangleShapeMode();
                     return true;
                 case "exit":
                     return false;
@@ -42,22 +114,20 @@ namespace DrawPad
 
         public void OnMouseClick(Point location)
         {
-            switch (_drawer)
+            if (_shapeMode == null)
             {
-                case LineDrawer.WaitBeginPoint:
-                    _begin = location;
-                    _drawer = LineDrawer.WaitEndPoint;
-                    break;
-
-                case LineDrawer.WaitEndPoint:
-                    _end = location;
-                    _drawer = LineDrawer.WaitBeginPoint;
-                    DrawPad.Add(new Line(_begin, _end));
-                    break;
-
-                default:
-                    throw new InvalidCommandException("Draw line");
+                throw new InvalidCommandException("Draw line");
             }
+            _shapeMode.OnMouseClick(location, _drawPad);
+            
+        }
+    }
+
+    internal class ShapeMode
+    {
+        public virtual void OnMouseClick(Point location,IDrawPad pad)
+        {
+
         }
     }
 }

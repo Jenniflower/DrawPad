@@ -6,7 +6,7 @@ using Moq;
 namespace DrawPadTest
 {
     [TestClass]
-    public class Mouse_OnClick
+    public class Mouse_OnClikc
     {
         private readonly Mock<IDrawPad> _mockPad = new Mock<IDrawPad>();
         private Mouse _sut;
@@ -36,6 +36,18 @@ namespace DrawPadTest
             _sut.OnMouseClick(new Point(1, 1));
 
             _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Never());
+        }
+
+        [TestMethod]
+        public void given_draw_triangle_and_3_click_should_return_valid_triangle_object()
+        {
+            var expect = new Triangle(new Point(2, 2), new Point(1, 1), new Point(3, 1));
+            _sut.Process("triangle");
+            _sut.OnMouseClick(new Point(2,2));
+            _sut.OnMouseClick(new Point(1,1));
+            _sut.OnMouseClick(new Point(3,1));
+
+            _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Once());
         }
     }
 }
