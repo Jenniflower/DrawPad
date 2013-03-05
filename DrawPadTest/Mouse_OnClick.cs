@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Drawing;
 using DrawPad;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -49,5 +50,48 @@ namespace DrawPadTest
 
             _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Once());
         }
+        [TestMethod]
+        public void given_draw_polygon_and_6_clicks_when_lasttwo_diff_should__not_return_valid_polygon_object()
+        {
+            List<Point> points = new List<Point>();
+            points.Add(new Point(1, 1));
+            points.Add(new Point(3, 0));
+            points.Add(new Point(4, 1));
+            points.Add(new Point(2, 3));
+            points.Add(new Point(0, 5));
+
+            var expect = new Polygon(points);
+            _sut.Process("polygon");
+            _sut.OnMouseClick(new Point(1, 1));
+            _sut.OnMouseClick(new Point(3, 0));
+            _sut.OnMouseClick(new Point(4, 1));
+            _sut.OnMouseClick(new Point(2, 3));
+            _sut.OnMouseClick(new Point(0, 5));
+
+            _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Never());
+        }
+        [TestMethod]
+        public void given_draw_polygon_and_6_clicks_when_lasttwo_same_should_return_valid_polygon_object()
+        {
+            List<Point> points = new List<Point>();
+            points.Add(new Point(1,1));
+            points.Add(new Point(3,0));
+            points.Add(new Point(4,1));
+            points.Add(new Point(2,3));
+            points.Add(new Point(0,5));
+            points.Add(new Point(0,5));
+
+            var expect = new Polygon(points);
+            _sut.Process("polygon");
+            _sut.OnMouseClick(new Point(1, 1));
+            _sut.OnMouseClick(new Point(3, 0));
+            _sut.OnMouseClick(new Point(4, 1));
+            _sut.OnMouseClick(new Point(2, 3));
+            _sut.OnMouseClick(new Point(0, 5));
+            _sut.OnMouseClick(new Point(0, 5));
+
+            _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Once());
+        }
     }
+
 }

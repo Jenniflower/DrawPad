@@ -1,8 +1,8 @@
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\bin\Debug\DrawPadTest.dll
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\bin\Debug\DrawPadTest.pdb
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\bin\Debug\DrawPad.exe
-D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\bin\Debug\Moq.dll
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\bin\Debug\DrawPad.pdb
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\obj\Debug\ResolveAssemblyReference.cache
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\obj\Debug\DrawPadTest.dll
 D:\ZYH\study\OOBootCamp\DrawPad\DrawPadTest\obj\Debug\DrawPadTest.pdb
+D:\ZYH\Study\OOBootCamp\DrawPad\DrawPadTest\bin\Debug\Moq.dll
