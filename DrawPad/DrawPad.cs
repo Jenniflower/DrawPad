@@ -46,7 +46,7 @@ namespace DrawPad
         {
             Console.WriteLine("Please enter a command:");
             string command = Console.ReadLine();
-            if (!_mouse.Process(command))
+            if (_mouse.Process(command) == null)
                 return false;
 
             do
