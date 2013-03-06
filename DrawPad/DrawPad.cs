@@ -44,37 +44,43 @@ namespace DrawPad
 
         private bool ProcessCommand()
         {
-            Console.WriteLine("Please enter a command:");
-            string command = Console.ReadLine();
-            if (_mouse.Process(command) == null)
-                return false;
-
-            do
+            try
             {
-                Console.WriteLine("Please enter a point:");
-                command = Console.ReadLine();
-
-                Point location;
-                if (!TryGetPoint(command, out location))
-                    break;
-
-                _mouse.OnMouseClick(location);
-            } while (true);
-
-            return true;
-        }
-
-        private bool TryGetPoint(string stringValue, out Point point)
-        {
-            if (!stringValue.Contains(","))
+                do
+                {
+                    Console.WriteLine(_mouse.Context.CurrentDrawerState.StateTip);
+                    string command = Console.ReadLine();
+                    _mouse.Process(command);
+                    if (_mouse.Context.CurrentDrawerState as CommandWaitDrawerState != null)
+                        return true;
+                } while (true);
+                return true;
+            }
+            catch (Exception)
             {
-                point = Point.Empty;
                 return false;
             }
+            
+            //Console.WriteLine("Please enter a command:");
+            //string command = Console.ReadLine();
+            //DrawerState mouseState = _mouse.Process(command);
+            //if (mouseState == null)
+            //    return false;
+            //do
+            //{
+            //    Console.WriteLine("Please enter a point:");
+            //    command = Console.ReadLine();
 
-            var values = stringValue.Split(',');
-            point = new Point(Int32.Parse(values[0]), Int32.Parse(values[1]));
+            //    Point location;
+            //    if (!TryGetPoint(command, out location))
+            //        break;
+
+            //    _mouse.OnMouseClick(location);
+            //} while (true);
+
             return true;
         }
+
+       
     }
 }

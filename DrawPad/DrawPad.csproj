@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawerContext.cs" />
     <Compile Include="DrawPad.cs" />
+    <Compile Include="DrawState.cs" />
     <Compile Include="IDrawPad.cs" />
     <Compile Include="IMouse.cs" />
     <Compile Include="InvalidCommandException.cs" />

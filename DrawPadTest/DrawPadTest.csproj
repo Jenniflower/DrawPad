@@ -43,7 +43,6 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mouse_OnClick.cs" />
     <Compile Include="Mouse_Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -24,9 +24,8 @@ namespace DrawPadTest
             var expect = new Line(new Point(1, 1), new Point(1, 2));
 
             _sut.Process("line");
-            _sut.OnMouseClick(new Point(1, 1));
-            _sut.OnMouseClick(new Point(1, 2));
-
+            _sut.Process("1,1");
+            _sut.Process("1,2");
             _mockPad.Verify(o => o.Add(expect), Times.Once());
         }
 
@@ -34,7 +33,7 @@ namespace DrawPadTest
         public void given_draw_line_and_1_click_should_wait_for_click()
         {
             _sut.Process("line");
-            _sut.OnMouseClick(new Point(1, 1));
+            _sut.Process("1,1");
 
             _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Never());
         }
@@ -44,9 +43,9 @@ namespace DrawPadTest
         {
             var expect = new Triangle(new Point(2, 2), new Point(1, 1), new Point(3, 1));
             _sut.Process("triangle");
-            _sut.OnMouseClick(new Point(2,2));
-            _sut.OnMouseClick(new Point(1,1));
-            _sut.OnMouseClick(new Point(3,1));
+            _sut.Process("2,2");
+            _sut.Process("1,1");
+            _sut.Process("3,1");
 
             _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Once());
         }
@@ -62,11 +61,11 @@ namespace DrawPadTest
 
             var expect = new Polygon(points);
             _sut.Process("polygon");
-            _sut.OnMouseClick(new Point(1, 1));
-            _sut.OnMouseClick(new Point(3, 0));
-            _sut.OnMouseClick(new Point(4, 1));
-            _sut.OnMouseClick(new Point(2, 3));
-            _sut.OnMouseClick(new Point(0, 5));
+            _sut.Process("1,1");
+            _sut.Process("3,0");
+            _sut.Process("4,1");
+            _sut.Process("2,3");
+            _sut.Process("0,5");
 
             _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Never());
         }
@@ -83,12 +82,12 @@ namespace DrawPadTest
 
             var expect = new Polygon(points);
             _sut.Process("polygon");
-            _sut.OnMouseClick(new Point(1, 1));
-            _sut.OnMouseClick(new Point(3, 0));
-            _sut.OnMouseClick(new Point(4, 1));
-            _sut.OnMouseClick(new Point(2, 3));
-            _sut.OnMouseClick(new Point(0, 5));
-            _sut.OnMouseClick(new Point(0, 5));
+            _sut.Process("1,1");
+            _sut.Process("3,0");
+            _sut.Process("4,1");
+            _sut.Process("2,3");
+            _sut.Process("0,5");
+            _sut.Process("0,5");
 
             _mockPad.Verify(o => o.Add(It.IsAny<Shape>()), Times.Once());
         }
